@@ -190,7 +190,7 @@ function App() {
             title="BasuraGo Staff"
             icon={staffIcon}
             description="Manage facility operations, monitor incoming waste, and oversee waste processing activities."
-            label="Portal coming soon"
+            label="Download APK"
             status="Coming soon"
           />
         </div>
