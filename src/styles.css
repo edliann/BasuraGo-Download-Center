@@ -1,0 +1,1114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ========================================
+   1. Global styles and design tokens
+======================================== */
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #142c23;
+  background: #eaf1e9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+
+  --green: #1f6b47;
+  --deep: #0c3026;
+  --muted: #65776c;
+  --line: rgba(21, 57, 41, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   2. Page background and overlays
+======================================== */
+
+.page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #eaf1e9;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 auto;
+  height: 790px;
+  background-image: var(--city-background);
+  background-size: cover;
+  background-position: center 44%;
+}
+
+.scene-overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 790px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 34, 26, 0.83) 0%,
+      rgba(5, 39, 30, 0.61) 38%,
+      rgba(6, 39, 30, 0.13) 100%
+    ),
+    linear-gradient(
+      0deg,
+      #eaf1e9 0%,
+      rgba(234, 241, 233, 0.1) 35%,
+      rgba(7, 36, 29, 0.03) 100%
+    );
+}
+
+.wrap {
+  width: min(1160px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+/* ========================================
+   3. Header and branding
+======================================== */
+
+.site-header {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: white;
+}
+
+/* Complete BasuraGo header image */
+
+.header-logo {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Retained for any other page elements that use these classes */
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+  background: #d9f4d9;
+  display: grid;
+  place-items: center;
+}
+
+.brand-mark svg {
+  width: 30px;
+  fill: #23734b;
+  stroke: #23734b;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand-wordmark {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-wordmark strong {
+  font-family: Manrope, sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.7px;
+}
+
+.brand-wordmark small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #c6e0d0;
+  font-weight: 700;
+}
+
+.official-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f2fff5;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 99px;
+  background: rgba(9, 40, 29, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.official-pill span,
+.eyebrow span,
+.footer-status span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #83e1a2;
+  display: inline-block;
+}
+
+/* ========================================
+   4. Hero section
+======================================== */
+
+.hero {
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 72px;
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  color: #d0ebd9;
+  margin: 0 0 20px;
+}
+
+.hero h1 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(45px, 6vw, 75px);
+  line-height: 1.04;
+  letter-spacing: -3.8px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #a6e4b7;
+}
+
+.hero-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #e0eee5;
+  max-width: 460px;
+  margin: 23px 0 25px;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #153e2d;
+  background: #e4f5e5;
+  padding: 13px 17px;
+  border-radius: 10px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.hero-link:hover {
+  transform: translateY(-2px);
+  background: white;
+}
+
+.hero-link span {
+  font-size: 18px;
+}
+
+.hero-note {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  background: rgba(10, 42, 31, 0.32);
+  backdrop-filter: blur(12px);
+}
+
+.note-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(220, 247, 225, 0.16);
+}
+
+.note-icon .app-card-icon {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
+.hero-note strong,
+.hero-note small {
+  display: block;
+}
+
+.hero-note strong {
+  font-size: 12px;
+  color: white;
+}
+
+.hero-note small {
+  font-size: 10px;
+  color: #d0e6d6;
+  margin-top: 4px;
+}
+
+/* ========================================
+   5. Application section heading
+======================================== */
+
+.apps-section {
+  padding: 15px 0 45px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 23px;
+}
+
+.eyebrow--dark {
+  color: #47825b;
+  margin-bottom: 9px;
+  font-size: 9px;
+}
+
+.section-heading h2 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(27px, 3vw, 36px);
+  letter-spacing: -1.3px;
+  margin: 0;
+  color: #153b2c;
+}
+
+.section-heading > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #63766a;
+  margin: 0 0 3px;
+  text-align: right;
+}
+
+/* ========================================
+   6. Application cards and grid
+======================================== */
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 268px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(26, 70, 45, 0.12);
+  background: rgba(255, 255, 255, 0.91);
+  box-shadow: 0 9px 26px rgba(19, 54, 35, 0.055);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.app-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(19, 54, 35, 0.1);
+}
+
+.card-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Icon container */
+
+.app-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: #e2f3e4;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Customer, Rider and Staff image icons */
+
+.app-card-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.platform-tag {
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #65806d;
+  background: #eff5ef;
+  border-radius: 6px;
+  padding: 7px 8px;
+}
+
+.card-copy {
+  padding-top: 20px;
+}
+
+.card-copy h2 {
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+  letter-spacing: -0.45px;
+  margin: 0 0 8px;
+  color: #183a2b;
+}
+
+.card-copy p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: #66786d;
+  margin: 0;
+  max-width: 300px;
+}
+
+.card-bottom {
+  margin-top: auto;
+  padding-top: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #738176;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e5ad4b;
+}
+
+.app-card--staff .status-dot {
+  background: #58a877;
+}
+
+.card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 9px;
+  background: #e4f2e6;
+  color: #779080;
+  padding: 10px 12px;
+  font: 700 10px 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.card-action span {
+  font-size: 14px;
+}
+
+.card-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.card-action--disabled {
+  background: #e4f2e6;
+  color: #779080;
+}
+
+/* ========================================
+   7. Help strip
+======================================== */
+
+.help-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px 17px;
+  border: 1px solid rgba(42, 97, 59, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.help-symbol {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #d8ebdb;
+  color: #39724d;
+  font-weight: 700;
+  font-size: 12px;
+  font-family: serif;
+}
+
+.help-strip p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #607267;
+  margin: 0;
+}
+
+.help-strip strong {
+  color: #274b36;
+}
+
+/* ========================================
+   8. Footer
+======================================== */
+
+.site-footer {
+  min-height: 68px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #738176;
+  font-size: 10px;
+}
+
+.footer-brand {
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #2b5e40;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-status span {
+  width: 6px;
+  height: 6px;
+  background: #d7a347;
+}
+
+/* ========================================
+   9. Tablet responsive styles
+======================================== */
+
+@media (max-width: 850px) {
+  .wrap {
+    width: min(calc(100% - 40px), 680px);
+  }
+
+  .page::before,
+  .scene-overlay {
+    height: 760px;
+  }
+
+  .hero {
+    min-height: 510px;
+  }
+
+  .hero-note {
+    right: 0;
+    bottom: 45px;
+  }
+
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .app-card {
+    min-height: 225px;
+  }
+
+  .card-copy p {
+    max-width: 520px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    flex-wrap: wrap;
+    padding: 18px 0;
+  }
+
+  .footer-status {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   10. Mobile responsive styles
+======================================== */
+
+@media (max-width: 520px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .site-header {
+    height: 78px;
+  }
+
+  .header-logo {
+    width: 150px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-wordmark strong {
+    font-size: 18px;
+  }
+
+  .brand-wordmark small {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .official-pill {
+    font-size: 0;
+    padding: 10px;
+  }
+
+  .official-pill span {
+    width: 8px;
+    height: 8px;
+  }
+
+  .page::before {
+    height: 700px;
+    background-position: 55% center;
+  }
+
+  .scene-overlay {
+    height: 700px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 34, 26, 0.82),
+        rgba(5, 39, 30, 0.4)
+      ),
+      linear-gradient(
+        0deg,
+        #eaf1e9 0%,
+        rgba(234, 241, 233, 0.03) 42%
+      );
+  }
+
+  .hero {
+    min-height: 530px;
+    align-items: flex-start;
+    padding-top: 74px;
+    padding-bottom: 120px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 12vw, 58px);
+    letter-spacing: -2.6px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 19px 0 22px;
+  }
+
+  .hero-note {
+    left: 0;
+    right: auto;
+    bottom: 36px;
+    padding: 11px 13px;
+  }
+
+  .apps-section {
+    padding-top: 5px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .section-heading > p {
+    text-align: left;
+    margin-top: 9px;
+  }
+
+  .section-heading h2 {
+    font-size: 29px;
+  }
+
+  .app-card {
+    padding: 19px;
+    min-height: 225px;
+  }
+
+  .card-copy {
+    padding-top: 17px;
+  }
+
+  .card-copy h2 {
+    font-size: 18px;
+  }
+
+  .card-bottom {
+    padding-top: 18px;
+  }
+
+  .help-strip {
+    align-items: flex-start;
+    padding: 13px;
+  }
+
+  .site-footer {
+    gap: 8px;
+  }
+
+  .site-footer > span:nth-child(2) {
+    text-align: right;
+  }
+
+  .footer-status {
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   11. Accessibility: reduced motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+
+/* Improve text contrast in the app section heading */
+
+.section-heading .eyebrow--dark {
+  color: #ffffff;
+}
+
+.section-heading h2 {
+  color: #ffffff;
+}
+
+.section-heading > p {
+  color: #ffffff;
+}
+
+
+
+/* ========================================
+   Android mobile viewport refinements
+======================================== */
+
+@media (max-width: 520px) {
+  /* Prevent horizontal scrolling */
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 320px;
+    margin: 0;
+  }
+
+  .page {
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .wrap {
+    width: calc(100% - 32px);
+    max-width: 100%;
+  }
+
+  /* Compact, balanced header */
+  .site-header {
+    height: 72px;
+    gap: 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .header-logo {
+    width: clamp(125px, 38vw, 155px);
+    max-height: 48px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .official-pill {
+    flex-shrink: 0;
+    padding: 9px;
+  }
+
+  /* Hero typography and spacing */
+  .hero {
+    min-height: auto;
+    padding-top: 62px;
+    padding-bottom: 125px;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    line-height: 1.6;
+    gap: 8px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10.5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    overflow-wrap: normal;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 18px 0 22px;
+  }
+
+  .hero-link {
+    min-height: 46px;
+    padding: 12px 16px;
+  }
+
+  .hero-note {
+    left: 0;
+    right: auto;
+    bottom: 30px;
+    max-width: 100%;
+    gap: 10px;
+    padding: 11px 12px;
+  }
+
+  .hero-note strong {
+    font-size: 12px;
+  }
+
+  .hero-note small {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  /* Keep section headings readable */
+  .apps-section {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(25px, 7vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  /* One full-width card per row */
+  .app-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .app-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .card-topline {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .app-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+
+  .platform-tag {
+    max-width: 55%;
+    font-size: 8px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .card-copy {
+    padding-top: 17px;
+  }
+
+  .card-copy h2 {
+    font-size: 19px;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+  }
+
+  .card-copy p {
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+
+  .card-bottom {
+    margin-top: 20px;
+    padding-top: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .status {
+    font-size: 11px;
+  }
+
+  .card-action {
+    min-height: 42px;
+    max-width: 100%;
+    padding: 11px 12px;
+    font-size: 11px;
+  }
+
+  /* Helpful instructions */
+  .help-strip {
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 13px;
+  }
+
+  .help-strip p {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* Stack footer content neatly */
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .site-footer > span:nth-child(2) {
+    text-align: left;
+  }
+
+  .footer-status {
+    width: auto;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+}
+
+/* Extra-small Android phones */
+@media (max-width: 360px) {
+  .wrap {
+    width: calc(100% - 24px);
+  }
+
+  .header-logo {
+    width: 120px;
+  }
+
+  .site-header {
+    gap: 8px;
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+    letter-spacing: -1.7px;
+  }
+
+  .hero-note {
+    max-width: 100%;
+  }
+
+  .app-card {
+    padding: 15px;
+  }
+
+  .card-bottom {
+    align-items: flex-start;
+  }
+
+  .card-action {
+    white-space: normal;
+  }
+}
+
+
+/* Mobile: move hero and section text upward */
+@media (max-width: 520px) {
+  .hero {
+    padding-top: 35px;
+    padding-bottom: 110px;
+  }
+
+  .hero-note {
+    bottom: 24px;
+  }
+
+  .apps-section {
+    padding-top: 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+}
+
+
+/* Mobile header: keep the official downloads label visible */
+@media (max-width: 520px) {
+  .site-header {
+    gap: 8px;
+  }
+
+  .brand {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .header-logo {
+    width: clamp(115px, 35vw, 150px);
+  }
+
+  .official-pill {
+    flex-shrink: 0;
+    font-size: 10px;
+    gap: 6px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  .official-pill span {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .header-logo {
+    width: 105px;
+  }
+
+  .official-pill {
+    font-size: 9px;
+    padding: 7px 8px;
+    gap: 5px;
+  }
+}
